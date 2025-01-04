@@ -3,6 +3,7 @@ import { BsGraphUp } from "react-icons/bs"; // Dashboard Icon
 import { AiOutlineShoppingCart } from "react-icons/ai"; // Product Icon
 import { FaClipboardList } from "react-icons/fa"; // Order Icon
 import { FiUsers } from "react-icons/fi"; // Customer Icon
+import AdminProductPage from "./admin/adminProductPage";
 
 export default function AdminHomePage() {
   return (
@@ -45,8 +46,9 @@ export default function AdminHomePage() {
       {/* Main Content Area */}
       <div className="w-[80%] h-screen bg-red-600">
         <Routes path="/">
+
           <Route path="/dashboard" element={<h1>Dashboard</h1>} />
-          <Route path="/products" element={<h1>Products</h1>} />
+          <Route path="/products" element={<AdminProductPage/>} />
           <Route path="/orders" element={<h1>Orders</h1>} />
           <Route path="/customers" element={<h1>Customers</h1>} />
           
