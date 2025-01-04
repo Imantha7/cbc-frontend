@@ -5,7 +5,7 @@ import './App.css'
 import LoginPage from './pages/loginPage'
 import HomePage from './pages/homePage'
 import RegistrationPage from './pages/signInPage'
-import AdminHomePAge from './pages/adminHomePage'
+import AdminHomePage from './pages/adminHomePage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<HomePage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/signup" element={<RegistrationPage/>}/>
-        <Route path="/admin" element={<AdminHomePAge/>}/>
+        <Route path="/admin/*" element={<AdminHomePage/>}/>
         <Route path="/*" element={<HomePage/>}/>
       </Routes>
 
