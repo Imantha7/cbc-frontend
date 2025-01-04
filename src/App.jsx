@@ -4,6 +4,7 @@ import './App.css'
 //import Testing from './components/testing'
 import LoginPage from './pages/loginPage'
 import HomePage from './pages/homePage'
+// import "./index.css";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 function App() {
 

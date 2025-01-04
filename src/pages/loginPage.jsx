@@ -1,15 +1,12 @@
 import { Link } from 'react-router-dom';
-import './LoginPage.css';
 
 
 export default function LoginPage(){
     return(
         <div>
-            <h1>Login Page</h1>
-            <input type="text" placeholder="Enter Your username"/>
-            <input type="password" placeholder="Enter your password"/>
-            <button>Login</button>
-            <Link to="/">Home   </Link>
+
+            <button className='bg-yellow-500 p-12'>Login</button>
+            
         </div>
-    )
+    );
 }
