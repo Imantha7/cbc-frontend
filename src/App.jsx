@@ -4,20 +4,25 @@ import './App.css'
 //import Testing from './components/testing'
 import LoginPage from './pages/loginPage'
 import HomePage from './pages/homePage'
-// import "./index.css";
+import RegistrationPage from './pages/signInPage'
+import AdminHomePAge from './pages/adminHomePage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 function App() {
 
   return (
-    <>
+    <div className='h-[100vh]'>
       <BrowserRouter>
+
       <Routes path="/*">
         <Route path="/" element={<HomePage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
-        <Route path="/*" element={<h1>404 error</h1>}/>
+        <Route path="/signup" element={<RegistrationPage/>}/>
+        <Route path="/admin" element={<AdminHomePAge/>}/>
+        <Route path="/*" element={<HomePage/>}/>
       </Routes>
+
       </BrowserRouter>
-    </> 
+    </div> 
   )
 }
 
