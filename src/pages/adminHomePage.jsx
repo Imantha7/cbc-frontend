@@ -4,6 +4,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai"; // Product Icon
 import { FaClipboardList } from "react-icons/fa"; // Order Icon
 import { FiUsers } from "react-icons/fi"; // Customer Icon
 import AdminProductPage from "./admin/adminProductPage";
+import AddProductForm from "./admin/addProductForm";
 
 export default function AdminHomePage() {
   return (
@@ -44,11 +45,12 @@ export default function AdminHomePage() {
       </div>
 
       {/* Main Content Area */}
-      <div className="w-[80%] h-screen bg-red-600">
+      <div className="w-[80%] h-screen">
         <Routes path="/">
 
           <Route path="/dashboard" element={<h1>Dashboard</h1>} />
           <Route path="/products" element={<AdminProductPage/>} />
+          <Route path="/products/addProduct" element={<AddProductForm/>} />
           <Route path="/orders" element={<h1>Orders</h1>} />
           <Route path="/customers" element={<h1>Customers</h1>} />
           

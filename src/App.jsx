@@ -8,6 +8,7 @@ import UserData from './components/UserData'
 import AdminHomePage from './pages/adminHomePage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
+
 function App() {
 
   return (

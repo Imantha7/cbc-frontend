@@ -1,75 +1,89 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { RiDeleteBin6Fill } from "react-icons/ri";
+import { FaPlus, FaRegEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-export default function AdminProductPage(){
+export default function AdminProductPage() {
+    const [products, setProducts] = useState([]);
 
-    const [products, setProducts] = useState(
-        [
-            {
-                "_id": "674b26c0d2ef71f6d29de783",
-                "productId": "B10001",
-                "productName": "Hydrating Face Serum",
-                "altNames": [
-                    "Moisturizing Serum",
-                    "Glow Boost Serum"
-                ],
-                "images": [
-                    "https://example.com/images/serum1.jpg",
-                    "https://example.com/images/serum1-alt.jpg"
-                ],
-                "price": 24.99,
-                "lastPrice": 29.99,
-                "stock": 200,
-                "description": "A lightweight, fast-absorbing serum infused with hyaluronic acid and vitamin C to hydrate and brighten your skin.",
-                "__v": 0
-            },
-            {
-                "_id": "675e73c11a4b599f8c1a8828",
-                "productId": "B98765",
-                "productName": "Hydrating Face Serum",
-                "altNames": [
-                    "Moisturizing Serum",
-                    "Skin Glow Serum"
-                ],
-                "images": [
-                    "https://example.com/serum1.jpg",
-                    "https://example.com/serum2.jpg"
-                ],
-                "price": 25.99,
-                "lastPrice": 29.99,
-                "stock": 200,
-                "description": "A lightweight hydrating serum enriched with hyaluronic acid to give your skin a radiant and healthy glow.",
-                "__v": 0
-            }
-        ]
-    )
+    useEffect(() => {
+        axios.get("http://localhost:5000/api/products").then((res) => {
+            console.log(res.data);
+            setProducts(res.data);
+            console.log({
+                discountTitle: "Summer sale",
+                ...products[0],
+            });
+        });
+    }, []);
 
-    useEffect(()=>{
-        axios.get("http://localhost:5000/api/products").
-        then((res)=>{
-        console.log(res.data)
-        setProducts(res.data)
-    })
-    },[])
-
-    return(
-        <div>
-            <h1>Admin Product Page</h1>
-            {
-                products.map(
-
-                    (product,index)=>{
-                        return(
-                            <div key={product.id} className="flex items-center justify-center">
-                             {product.productName}
-                            </div>
-                        )
-
-                    }
-                )
-            }
+    return (
+        <div className="min-h-screen bg-gray-100 p-6 relative">
+            <Link to={"/admin/products/addProduct"} className="absolute right-3 bottom-[25px] text-[25px]
+            bg-[#3b82f6] text-white p-5 rounded-xl
+            hover:bg-blue-300"><FaPlus/></Link>
+            <div className="max-w-7xl mx-auto">
+                <h1 className="text-3xl font-bold text-gray-800 mb-6">
+                    Admin Product Page
+                </h1>
+                <div className="overflow-x-auto">
+                    <table className="w-full table-auto bg-white shadow-md rounded-lg overflow-hidden">
+                        <thead>
+                            <tr className="bg-gray-200 text-gray-700 text-left">
+                                <th className="px-4 py-3 text-sm font-medium">Product ID</th>
+                                <th className="px-4 py-3 text-sm font-medium">Product Name</th>
+                                <th className="px-4 py-3 text-sm font-medium">Price ($)</th>
+                                <th className="px-4 py-3 text-sm font-medium">Last Price ($)</th>
+                                <th className="px-4 py-3 text-sm font-medium">Stock</th>
+                                <th className="px-4 py-3 text-sm font-medium">Description</th>
+                                <th className="px-4 py-3 text-sm font-medium">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {products.map((product, index) => (
+                                <tr
+                                    key={index}
+                                    className={`border-b ${
+                                        index % 2 === 0
+                                            ? "bg-gray-50"
+                                            : "bg-white"
+                                    }`}
+                                >
+                                    <td className="px-4 py-3 text-sm text-gray-700">
+                                        {product.productId}
+                                    </td>
+                                    <td className="px-4 py-3 text-sm text-gray-700">
+                                        {product.productName}
+                                    </td>
+                                    <td className="px-4 py-3 text-sm text-gray-700">
+                                        {product.price.toFixed(2)}
+                                    </td>
+                                    <td className="px-4 py-3 text-sm text-gray-700">
+                                        {product.lastPrice.toFixed(2)}
+                                    </td>
+                                    <td className="px-4 py-3 text-sm text-gray-700">
+                                        {product.stock}
+                                    </td>
+                                    <td className="px-4 py-3 text-sm text-gray-700">
+                                        {product.description}
+                                    </td>
+                                    <td className="px-4 py-3 text-sm text-gray-700">
+                                        <div className="flex space-x-4">
+                                            <button className="text-red-500 hover:text-red-700">
+                                                <RiDeleteBin6Fill size={20} />
+                                            </button>
+                                            <button className="text-blue-500 hover:text-blue-700">
+                                                <FaRegEdit size={20} />
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    )
+    );
 }
-
-    
