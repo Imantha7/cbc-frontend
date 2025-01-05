@@ -89,7 +89,7 @@ export default function AdminProductPage() {
                                                 >
                                                     <RiDeleteBin6Fill size={20} />
                                                 </button>
-                                                <button className="text-blue-500 hover:text-blue-700">
+                                                <button  className="text-blue-500 hover:text-blue-700">
                                                     <FaRegEdit size={20} />
                                                 </button>
                                             </div>
