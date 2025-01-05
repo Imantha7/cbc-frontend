@@ -7,12 +7,13 @@ import HomePage from './pages/homePage'
 import UserData from './components/UserData'
 import AdminHomePage from './pages/adminHomePage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Toaster } from 'react-hot-toast'
 function App() {
 
   return (
     <div className='h-[100vh]'>
       <BrowserRouter>
-
+      <Toaster position="top-right"/>
       <Routes path="/*">
       <Route path="/*" element={<HomePage/>}/>   
         <Route path="/login" element={<LoginPage/>}/>
