@@ -8,6 +8,7 @@ import UserData from './components/UserData'
 import AdminHomePage from './pages/adminHomePage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
+import FileUploadTest from './pages/text'
 
 function App() {
 
@@ -22,6 +23,8 @@ function App() {
         <Route path='/signup' element={<UserData/>}/>
 
         <Route path="/admin/*" element={<AdminHomePage/>}/>
+
+        <Route path="/testing/*" element={<FileUploadTest/>}/>
       </Routes>
 
       </BrowserRouter>
