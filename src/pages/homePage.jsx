@@ -1,10 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, Routes } from 'react-router-dom';
 import Header from '../components/header';
 
 export default function HomePage(){
     return(
         <div className="w-full h-screen">
-        <Header/>
+              <Header/>
+              <Routes path="/">
+        
+              </Routes>
         </div>
     )
 }
