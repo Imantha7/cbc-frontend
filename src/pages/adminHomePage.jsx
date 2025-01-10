@@ -5,12 +5,13 @@ import { FaClipboardList } from "react-icons/fa"; // Order Icon
 import { FiUsers } from "react-icons/fi"; // Customer Icon
 import AdminProductPage from "./admin/adminProductPage";
 import AddProductForm from "./admin/addProductForm";
+import EditProductForm from "./admin/editProductForm";
 
 export default function AdminHomePage() {
   return (
     <div className="flex w-full h-screen bg-gray-100">
       {/* Sidebar */}
-      <div className="w-[20%] h-screen bg-blue-600 text-white flex flex-col items-center py-8">
+      <div className="w-[20%] h-screen fixed top-0 left-0 bg-blue-600 text-white flex flex-col items-center py-8">
         <h1 className="text-2xl font-bold mb-10">Admin Panel</h1>
         <nav className="space-y-6 w-full">
           <Link
@@ -45,20 +46,20 @@ export default function AdminHomePage() {
       </div>
 
       {/* Main Content Area */}
-      <div className="w-[80%] h-screen">
+      <div className="w-[80%] ml-[20%] h-screen overflow-y-auto">
         <Routes path="/">
-
           <Route path="/" element={<h1>Dashboard</h1>} />
-          <Route path="/products" element={<AdminProductPage/>} />
-          <Route path="/products/addProduct" element={<AddProductForm/>} />
+          <Route path="/products" element={<AdminProductPage />} />
+          <Route path="/products/addProduct" element={<AddProductForm />} />
+          <Route path="/products/editProduct" element={<EditProductForm />} />
           <Route path="/orders" element={<h1>Orders</h1>} />
           <Route path="/customers" element={<h1>Customers</h1>} />
-          <Route path="/*" element={<h1>404 not found the admin page</h1>}/>
-          
+          <Route path="/*" element={<h1>404 not found the admin page</h1>} />
         </Routes>
       </div>
     </div>
   );
 }
+
 
 

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { FaPlus, FaRegEdit } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 export default function AdminProductPage() {
@@ -11,7 +11,7 @@ export default function AdminProductPage() {
 
     useEffect(() => {
         if(!productsLoaded){
-            axios.get("import.meta.env.VITE_BACKEND_URL/api/products").then((res) => { 
+            axios.get(import.meta.env.VITE_BACKEND_URL+"/api/products").then((res) => { 
                 setProducts(res.data);
                 console.log(res.data)
                 setProductsLoaded(true)
@@ -19,6 +19,8 @@ export default function AdminProductPage() {
         
     }
     }, [productsLoaded]);
+
+    const navigate = useNavigate();
 
     return (
         <div className="min-h-screen bg-gray-100 p-6 relative">
@@ -76,7 +78,7 @@ export default function AdminProductPage() {
                                                 <button className="text-red-500 hover:text-red-700" onClick={()=>{
                                                     const token = localStorage.getItem("token")
                                                     
-                                                    axios.delete(`import.meta.env.VITE_BACKEND_URL/api/products/${product.productId}`, {
+                                                    axios.delete(import.meta.env.VITE_BACKEND_URL+`/api/products/${product.productId}`, {
                                                         headers: {
                                                           Authorization: `Bearer ${token}`,
                                                         },
@@ -90,7 +92,10 @@ export default function AdminProductPage() {
                                                 >
                                                     <RiDeleteBin6Fill size={20} />
                                                 </button>
-                                                <button  className="text-blue-500 hover:text-blue-700">
+                                                <button className="text-blue-500 hover:text-blue-700"
+                                                onClick={()=>{
+                                                    navigate("/admin/products/editProduct", {state : {product : product}})
+                                                }}>
                                                     <FaRegEdit size={20} />
                                                 </button>
                                             </div>
