@@ -12,7 +12,8 @@ export default function AdminProductPage() {
 
     useEffect(() => {
         if(!productsLoaded){
-            axios.get(import.meta.env.VITE_BACKEND_URL+"/api/products").then((res) => { 
+            axios.get(import.meta.env.VITE_BACKEND_URL+"/api/products")
+            .then((res) => { 
                 setProducts(res.data);
                 console.log(res.data)
                 setProductsLoaded(true)
@@ -22,6 +23,7 @@ export default function AdminProductPage() {
     }, [productsLoaded]);
 
     const navigate = useNavigate();
+
 
     return (
         <div className="min-h-screen bg-gray-100 p-6 relative">
@@ -47,8 +49,10 @@ export default function AdminProductPage() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {products.map((product, index) => (
+                            {products.map((product, index) => (
+                                
                                     <tr
+                                    
                                         key={index}
                                         className={`border-b ${
                                             index % 2 === 0
