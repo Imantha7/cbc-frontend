@@ -5,6 +5,7 @@ import { FaPlus, FaRegEdit } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
+
 export default function AdminProductPage() {
     const [products, setProducts] = useState([]);
     const [productsLoaded, setProductsLoaded] = useState(false)
