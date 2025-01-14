@@ -89,7 +89,6 @@ export default function AdminProductPage() {
                                                         },
                                                       }).then((res) => {
                                                         console.log(res.data);
-                                                        confirm("Are you sure?")
                                                         toast.success("Product deleted successfully");
                                                         setProductsLoaded(false)
                                                         });
