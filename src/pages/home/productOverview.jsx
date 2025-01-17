@@ -33,7 +33,7 @@ export default function ProductOverview(){
     ,[])
 
     return(
-        <div className="w-full h-[calc(100vh-100px)]">
+        <div className="w-full h-[calc(100vh-100px)] m-5">
             {
                 status == "loading"&&(
                 <div className="w-full h-full flex 
