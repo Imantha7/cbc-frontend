@@ -93,10 +93,23 @@ export default function ProductOverview(){
                 )
             }
             {
-                status == "founf"&&(
-                <div className="w-full h-full flex
-                items-center justify-center">
-                    Product found
+                status == "found"&&(
+                    <div className="w-full h-full flex items-center justify-center">
+                    <div className="w-[35%] h-full">
+                        <img src={product.images[0]} className="w-full h-[300px] object-cover
+                        rounded-lg"/>
+                    </div>
+                    <div className="w-[65%] h-full p-4">
+                        <h1 className="text-3xl font-bold text-gray-800">{product.productName}
+                        </h1>
+                        <h1 className="text-3xl font-bold text-gray-500">{product.altNames.join(" | ")}
+                        </h1>
+                        <p className="text-xl text-gray-600">{
+                        (product.price>product.lastPrice)&&
+                        <span className="line-through text-red-500">${"LKR."+product.price}</span>
+                        } <span>{"LKR."+product.lastPrice}</span></p>
+                        <p className="text-lg text-gray-600 line-clamp-3">{product.description}</p>
+                    </div>
                 </div>
                 )
             }
