@@ -1,29 +1,18 @@
 import { Link } from "react-router-dom";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { useState } from "react";
-import NavSlider from "./navSlider";
+import { IoCloseSharp } from "react-icons/io5";
 
-export default function Header(){
-
-    const [isSliderOpen, setIsSliderOpen] = useState(false);
-
+export default function NavSlider(){
     return(
-        <>
-        {isSliderOpen&&<NavSlider onclose={()=>{setIsSliderOpen(false)}}/>}
-
-        <header className="bg-white w-full h-[80px] relative flex justify-center items-center">
+        <div className="fixed w-full h-screen bg-[#00000080] z-[10]">
+            
+            <div className="bg-white w-[400px] h-screen flex flex-col">
+            <div className="bg-white w-full h-[80px] relative flex justify-center items-center">
             
             <img src="/logo.png" className="cursor-pointer h-[100px] 
             rounded-full absolute left-[10px]"/>
-            <RxHamburgerMenu 
-            onClick={()=>{
-                setIsSliderOpen(true)
-            }}
-            className="text-3xl cursor-pointer absolute 
-            right-[10px] lg:hidden text-accent"/>
-
-        <div className="h-full items-center w-[500px] justify-between hidden
-        lg:flex">
+            <IoCloseSharp className="text-accent text-3xl cursor-pointer absolute right-[20px] lg:hidden"/>
+            </div>
+            
             <Link to="/" className="text-accent font-bold text-xl
             hover:border-b border-b-accent">Home</Link>
 
@@ -38,9 +27,8 @@ export default function Header(){
 
             <Link to="/" className="text-accent font-bold text-xl
             hover:border-b border-b-accent">Cart</Link>
+            </div>
+            
         </div>
-
-        </header>
-        </>
     )
 }
