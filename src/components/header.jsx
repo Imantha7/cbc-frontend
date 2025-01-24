@@ -9,7 +9,7 @@ export default function Header(){
 
     return(
         <>
-        {isSliderOpen&&<NavSlider onclose={()=>{setIsSliderOpen(false)}}/>}
+        {isSliderOpen&&<NavSlider closeSlider={()=>{setIsSliderOpen(false)}}/>}
 
         <header className="bg-white w-full h-[80px] relative flex justify-center items-center">
             
