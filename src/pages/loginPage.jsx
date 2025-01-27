@@ -31,7 +31,7 @@ export default function LoginPage() {
     const [password, setPassword] = useState();
 
     function Login(){
-        axios.post(import.meta.env.VITE_BACKEND_URLc, {
+        axios.post(import.meta.env.VITE_BACKEND_URL+"/api/users/login", {
             email : email,
             password : password
         }).then((res)=>{

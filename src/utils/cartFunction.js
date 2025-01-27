@@ -48,7 +48,9 @@ export function loadCart() {
             return item.productId==productId
         }
     )
-    if(index!=-1){
-        cart.splice(index,1)
+    if(index!=-1){    
+      cart.splice(index,1)
+      saveCart(cart)
+        
     }
   }
