@@ -5,16 +5,33 @@ import toast from "react-hot-toast";
 
 export default function LoginPage() {
 
-    const [email, setEmail] = useState("Your email")
-    const [password, setPassword] = useState();
     const googleLogin = useGoogleLogin({
-        onSuccess : (res)=>{
+        onSuccess: (res)=>{
             console.log(res)
+            axios.post(import.meta.env.VITE_BACKEND_URL+"/api/users/google",{
+                token : res.access_token
+            }).then(
+                (res)=>{
+                    if(res.data.message == "User created"){
+                        toast.success("Your account is created now you can login via gooogle.") 
+                    }else{
+                        localStorage.setItem("token",res.data.token)
+                        if(res.data.user.typr){
+                            window.location.href = "/admin"
+                        }else{
+                            window.location.href = "/"
+                        }
+                    }
+                }
+            )
         }
     })
 
+    const [email, setEmail] = useState("Your email")
+    const [password, setPassword] = useState();
+
     function Login(){
-        axios.post(import.meta.env.VITE_BACKEND_URL+"/api/users/login", {
+        axios.post(import.meta.env.VITE_BACKEND_URLc, {
             email : email,
             password : password
         }).then((res)=>{
