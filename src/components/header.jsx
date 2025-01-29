@@ -24,20 +24,37 @@ export default function Header(){
 
         <div className="h-full items-center w-[500px] justify-between hidden
         lg:flex">
-            <Link to="/" className="text-accent font-bold text-xl
-            hover:border-b border-b-accent">Home</Link>
+            <Link
+            to="/"
+            className="text-accent font-bold text-xl hover:border-b border-b-accent"
+          >
+            Home
+          </Link>
+          <Link
+            to="/products"
+            className="text-accent font-bold text-xl hover:border-b border-b-accent"
+          >
+            Products
+          </Link>
+          <Link
+            to="/about"
+            className="text-accent font-bold text-xl hover:border-b border-b-accent"
+          >
+            About Us
+          </Link>
+          <Link
+            to="/contact"
+            className="text-accent font-bold text-xl hover:border-b border-b-accent"
+          >
+            Contact Us
+          </Link>
 
-            <Link to="/" className="text-accent font-bold text-xl
-            hover:border-b border-b-accent">Products</Link>
-
-            <Link to="/" className="text-accent font-bold text-xl
-            hover:border-b border-b-accent">About US</Link>
-
-            <Link to="/" className="text-accent font-bold text-xl
-            hover:border-b border-b-accent">Contact Us</Link>
-
-            <Link to="/" className="text-accent font-bold text-xl
-            hover:border-b border-b-accent">Cart</Link>
+          <Link
+            to="/cart"
+            className="text-accent font-bold text-xl hover:border-b border-b-accent"
+          >
+            Cart
+          </Link>
         </div>
 
         </header>

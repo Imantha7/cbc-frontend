@@ -4,11 +4,11 @@ export default function ProductCard(props){
 
     console.log(props)
     return(
-        <Link to={`/productInfo/${props.product.productId}`}>
-            <div className="w-[300px] h-[400px] m-[70px]
+        <Link to={`/productInfo/${props.product.productId}`}  className="w-[300px] h-[400px] m-[70px]
             rounded-xl shadow-lg shadow-gray-500
-            hover:shadow-primary hover:border-[3px]
+          hover:shadow-primary hover:border-[3px]
             overflow-hidden flex flex-col">
+            
                 <img src={props.product.images[0]} className="h-[60%]
                 w-full object-cover"/>
                 <h1 className="text-3xl font-bold text-center">
@@ -25,7 +25,7 @@ export default function ProductCard(props){
                 <p className="text-left text-xl text-gray-500 font-semibold 
                 line-through ">LKR.{props.product.price.toFixed(2)}</p>
                 }
-            </div>
+            
         </Link>
     )
 }
