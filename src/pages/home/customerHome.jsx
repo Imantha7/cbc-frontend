@@ -1,24 +1,3 @@
-// export default function CustomerHome() {
-//     return (
-//         <div 
-//             className="w-full h-screen bg-cover bg-center" 
-//             style={{ backgroundImage: "url('/homeimage2.jpg')" }}
-//         >
-//             <div className="flex flex-col  w-full h-full
-//              bg-black bg-opacity-50">
-//                 <h1 className="text-white absolute right-4 text-4xl font-bold">WELCOME TO CRYSTAL BEAUTY CLEAR</h1>
-//                 <p className="text-2xl text-black w-2/3 relative right-4">
-//                     Discover a world of beauty with our premium collection 
-//                     of cosmetics, skincare, and personal care products. 
-//                     From luxurious makeup to nourishing skincare essentials, we bring 
-//                     you high-quality, trendsetting products that enhance your natural 
-//                     beauty. Explore our exclusive range, enjoy seamless shopping, 
-//                     and let your beauty shine effortlessly.  </p>
-//             </div>
-//         </div>
-//     );
-// }
-
 import { Link } from "react-router-dom";
 
 export default function CustomerHome() {
